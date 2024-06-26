@@ -58,9 +58,22 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
-let humanChoice = getHumanChoice();
-let computerChoice = getComputerChoice();
+function playGame() {
+    for (i = 0; i < 5; i++) {
+        let humanChoice = getHumanChoice();
+        let computerChoice = getComputerChoice();
+        let result = playRound(humanChoice, computerChoice);
+        console.log(result);
+    }
+    console.log("Human score: " + humanScore);
+    console.log("Computer score: " + computerScore);
+    if (humanScore < computerScore) {
+        console.log("You lose the game.");
+    } else if (humanScore === computerScore) {
+        console.log("It's a tie. Refresh to try again.");
+    } else {
+        console.log("You win!");
+    }
+}
 
-console.log(playRound(humanChoice, computerChoice));
-console.log("Human score: " + humanScore);
-console.log("Computer score: " + computerScore);
+playGame();
