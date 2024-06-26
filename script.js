@@ -23,3 +23,44 @@ function getHumanChoice() {
 
 let humanScore = 0;
 let computerScore = 0;
+
+function playRound(humanChoice, computerChoice) {
+    if (humanChoice === "rock") {
+        if (computerChoice === "paper") {
+            computerScore++;
+            return "Paper beats rock. You lose!";
+        } else if (humanChoice === computerChoice) {
+            return "Rock on rock. It's a tie!";
+        } else {
+            humanScore++;
+            return "Rock beats scissors. You win!";
+        }
+    } else if (humanChoice === "paper") {
+        if (computerChoice === "scissors") {
+            computerScore++;
+            return "Scissors beats paper. You lose!";
+        } else if (humanChoice === computerChoice) {
+            return "Paper on paper. It's a tie!";
+        } else {
+            humanScore++;
+            return "Paper beats rock. You win!";
+        }
+    } else if (humanChoice === "scissors") {
+        if (computerChoice === "rock") {
+            computerScore++;
+            return "Rock beats scissors. You lose!";
+        } else if (humanChoice === computerChoice) {
+            return "Scissors on scissors. It's a tie!";
+        } else {
+            humanScore++;
+            return "Scissors beats paper. You win!";
+        }
+    }
+}
+
+let humanChoice = getHumanChoice();
+let computerChoice = getComputerChoice();
+
+console.log(playRound(humanChoice, computerChoice));
+console.log("Human score: " + humanScore);
+console.log("Computer score: " + computerScore);
